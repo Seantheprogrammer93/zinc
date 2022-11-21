@@ -4,7 +4,7 @@ import { ConnectExtension } from "@magic-ext/connect";
 import Web3 from "web3";
 import './App.css'
 
-const magic = new Magic("pk_live_DDA0DD907F42D3E4", {
+const magic = new Magic(process.env.MAGIC_API_KEY, {
   network: "goerli",
   locale: "en_US",
   extensions: [new ConnectExtension()]
