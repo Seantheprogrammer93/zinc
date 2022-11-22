@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
 import Web3 from "web3";
-import './App.css'
+import Header from './components/Header';
 
 const magic = new Magic(import.meta.env.VITE_MAGIC_KEY, {
   network: "goerli",
@@ -18,7 +18,6 @@ function App() {
     const publicAddress = (await web3.eth.getAccounts())[0];
     const txnParams = {
       from: publicAddress,
-      to: publicAddress,
       value: web3.utils.toWei("0.01", "ether"),
       gasPrice: web3.utils.toWei("30", "gwei")
     };
@@ -69,7 +68,6 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Magic Connect</h2>
       {!account && (
         <button onClick={login} className="button-row">
           Sign In
@@ -78,8 +76,9 @@ function App() {
 
       {account && (
         <>
+          <Header username={"user"} />
           <button onClick={showWallet} className="button-row">
-            Show Wallet
+            Show Wallet {showWallet}
           </button>
           <button onClick={sendTransaction} className="button-row">
             Send Transaction
