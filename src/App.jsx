@@ -62,7 +62,7 @@ function App() {
     await magic.connect.disconnect().catch((e) => {
       console.log(e);
     });
-    setAccount(null);
+    setEmail(null);
   };
 
   return (
