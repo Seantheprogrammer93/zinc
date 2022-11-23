@@ -34,7 +34,8 @@ function App() {
     const publicAddress = (await web3.eth.getAccounts())[0];
     const txnParams = {
       from: publicAddress,
-      value: web3.utils.toWei("0.01", "ether"),
+      to: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      value: web3.utils.toWei("0.5", "ether"),
       gasPrice: web3.utils.toWei("30", "gwei")
     };
     web3.eth
