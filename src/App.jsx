@@ -12,16 +12,10 @@ const magic = new Magic(import.meta.env.VITE_MAGIC_KEY, {
 const web3 = new Web3(magic.rpcProvider);
 
 function App() {
-  const [account, setAccount] = useState(null);
   const [email, setEmail] = useState("");
   const [publicAddress, setPublicAddress] = useState("");
-  const [destinationAddress, setDestinationAddress] = useState("");
-  const [inputTxHash, setInputTxHash] = useState("");
-  const [sendAmount, setSendAmount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userMetadata, setUserMetadata] = useState({});
-  const [txHash, setTxHash] = useState("");
-  const [sendingTransaction, setSendingTransaction] = useState(false);
 
   useEffect(() => {
     magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
