@@ -13,6 +13,7 @@ const web3 = new Web3(magic.rpcProvider);
 
 function App() {
   const [account, setAccount] = useState(null);
+  const [email, setEmail] = useState("");
 
   const sendTransaction = async () => {
     const publicAddress = (await web3.eth.getAccounts())[0];
@@ -35,14 +36,12 @@ function App() {
   };
 
   const login = async () => {
-    web3.eth
-      .getAccounts()
-      .then((accounts) => {
-        setAccount(accounts?.[0]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      await magic.auth.loginWithEmailOTP({ email });
+      web3.eth.getAccounts();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const signMessage = async () => {
@@ -68,15 +67,25 @@ function App() {
 
   return (
     <div className="App">
-      {!account && (
-        <button onClick={login} className="button-row">
-          Sign In
-        </button>
+      {!email && (
+        <div className="container">
+        <h1>Please sign up or login</h1>
+        <input
+            type="email"
+            name="email"
+            required="required"
+            placeholder="Enter your email"
+            onChange={(event) => {
+                setEmail(event.target.value);
+            }}
+        />
+        <button onClick={login}>Send</button>
+    </div>
       )}
 
-      {account && (
+      {email && (
         <>
-          <Header username={"user"} />
+          <Header username={email} />
           <button onClick={showWallet} className="button-row">
             Show Wallet {showWallet}
           </button>
