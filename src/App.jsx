@@ -93,7 +93,7 @@ function App() {
     </div>
       ) : (
         <>
-          <Header username={email} logoutButton={logout}/>
+          <Header logoutButton={logout}/>
           <button onClick={showWallet} className="button-row">
             Show Wallet {showWallet}
           </button>
