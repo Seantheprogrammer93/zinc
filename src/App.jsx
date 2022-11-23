@@ -93,16 +93,7 @@ function App() {
     </div>
       ) : (
         <>
-          <Header logoutButton={logout}/>
-          <button onClick={showWallet} className="button-row">
-            Show Wallet {showWallet}
-          </button>
-          <button onClick={sendTransaction} className="button-row">
-            Send Transaction
-          </button>
-          <button onClick={signMessage} className="button-row">
-            Sign Message
-          </button>
+          <Header signMessageButton={signMessage} showWalletButton={showWallet} sendButton={sendTransaction} logoutButton={logout}/>
         </>
       )}
     </div>
