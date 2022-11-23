@@ -6,7 +6,7 @@ function Announcement() {
   
   return (
     <div class="relative bg-black px-4 py-3 pr-14 text-white">
-      <p class="text-left text-sm font-medium sm:text-center">
+      <p class="text-left text-2xl font-medium sm:text-center">
         We stand with 🏳️‍🌈🏳️‍⚧️
       </p>
 
