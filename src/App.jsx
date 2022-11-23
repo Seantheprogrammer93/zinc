@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
 import Web3 from "web3";
@@ -14,6 +14,25 @@ const web3 = new Web3(magic.rpcProvider);
 function App() {
   const [account, setAccount] = useState(null);
   const [email, setEmail] = useState("");
+  const [publicAddress, setPublicAddress] = useState("");
+  const [destinationAddress, setDestinationAddress] = useState("");
+  const [inputTxHash, setInputTxHash] = useState("");
+  const [sendAmount, setSendAmount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userMetadata, setUserMetadata] = useState({});
+  const [txHash, setTxHash] = useState("");
+  const [sendingTransaction, setSendingTransaction] = useState(false);
+
+  useEffect(() => {
+    magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
+        setIsLoggedIn(magicIsLoggedIn);
+        if (magicIsLoggedIn) {
+            const metadata = await magic.user.getMetadata();
+            setPublicAddress(metadata.publicAddress);
+            setUserMetadata(metadata);
+        }
+    });
+}, [isLoggedIn]);
 
   const sendTransaction = async () => {
     const publicAddress = (await web3.eth.getAccounts())[0];
@@ -36,12 +55,9 @@ function App() {
   };
 
   const login = async () => {
-    try {
-      await magic.auth.loginWithEmailOTP({ email });
-      web3.eth.getAccounts();
-    } catch (error) {
-      console.log(error);
-    }
+    await magic.auth.loginWithEmailOTP({ email });
+    web3.eth.getAccounts();
+    setIsLoggedIn(true);
   };
 
   const signMessage = async () => {
@@ -58,16 +74,16 @@ function App() {
     });
   };
 
-  const disconnect = async () => {
+  const logout = async () => {
     await magic.connect.disconnect().catch((e) => {
       console.log(e);
     });
-    setEmail(null);
+    setIsLoggedIn(false);
   };
 
   return (
     <div className="App">
-      {!email && (
+      {!isLoggedIn ? (
         <div className="container">
         <h1>Please sign up or login</h1>
         <input
@@ -81,9 +97,7 @@ function App() {
         />
         <button onClick={login}>Send</button>
     </div>
-      )}
-
-      {email && (
+      ) : (
         <>
           <Header username={email} />
           <button onClick={showWallet} className="button-row">
@@ -95,8 +109,8 @@ function App() {
           <button onClick={signMessage} className="button-row">
             Sign Message
           </button>
-          <button onClick={disconnect} className="button-row">
-            Disconnect
+          <button onClick={logout} className="button-row">
+            logout
           </button>
         </>
       )}
