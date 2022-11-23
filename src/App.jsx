@@ -87,7 +87,7 @@ function App() {
       <Announcement/>
       {!isLoggedIn ? (
         <div className="container">
-          <Login emailInputData={emilInputHandler} loginButton={login}/>
+          <Login emailInputData={emilInputHandler} loginButton={""}/>
         </div>
       ) : (
         <>
