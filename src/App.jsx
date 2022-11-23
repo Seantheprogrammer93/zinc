@@ -77,21 +77,16 @@ function App() {
     setIsLoggedIn(false);
   };
 
+  const emilInputHandler = (e) => {
+    setEmail(e.target.value);
+  };
+
   return (
     <div className="App">
       <Announcement/>
       {!isLoggedIn ? (
         <div className="container">
-          <Login loginButton={login}/>
-          <input
-            type="email"
-            name="email"
-            required="required"
-            placeholder="Enter your email"
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
+          <Login emailInputData={emilInputHandler} loginButton={login}/>
         </div>
       ) : (
         <>
