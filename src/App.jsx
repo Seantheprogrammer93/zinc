@@ -52,9 +52,9 @@ function App() {
   };
 
   const login = async () => {
-    await magic.auth.loginWithEmailOTP({ email });
-    web3.eth.getAccounts();
-    setIsLoggedIn(true);
+    //await magic.auth.loginWithEmailOTP({ email });
+    //web3.eth.getAccounts();
+    //setIsLoggedIn(true);
   };
 
   const signMessage = async () => {
@@ -87,7 +87,7 @@ function App() {
       <Announcement/>
       {!isLoggedIn ? (
         <div className="container">
-          <Login emailInputData={emilInputHandler} loginButton={""}/>
+          <Login emailInputData={emilInputHandler} loginButton={login}/>
         </div>
       ) : (
         <>
