@@ -3,6 +3,7 @@ import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
 import Web3 from "web3";
 import Header from './components/Header';
+import Login from './components/Login';
 import Announcement from './components/Announcement';
 
 const magic = new Magic(import.meta.env.VITE_MAGIC_KEY, {
@@ -81,7 +82,7 @@ function App() {
       <Announcement/>
       {!isLoggedIn ? (
         <div className="container">
-          <h1>Please sign up or login</h1>
+          <Login loginButton={login}/>
           <input
             type="email"
             name="email"
@@ -91,7 +92,6 @@ function App() {
               setEmail(event.target.value);
             }}
           />
-          <button onClick={login}>Send</button>
         </div>
       ) : (
         <>
