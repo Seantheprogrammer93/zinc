@@ -93,7 +93,7 @@ function App() {
     </div>
       ) : (
         <>
-          <Header username={email} />
+          <Header username={email} logoutButton={logout}/>
           <button onClick={showWallet} className="button-row">
             Show Wallet {showWallet}
           </button>
@@ -102,9 +102,6 @@ function App() {
           </button>
           <button onClick={signMessage} className="button-row">
             Sign Message
-          </button>
-          <button onClick={logout} className="button-row">
-            logout
           </button>
         </>
       )}

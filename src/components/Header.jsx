@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header({username}) {
+function Header(props, {username}) {
   return (
     <header aria-label="Page Header">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
@@ -41,8 +41,9 @@ function Header({username}) {
             <button
               className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
               type="button"
+              onClick={props.logoutButton}
             >
-              Create Post
+              Logout
             </button>
           </div>
         </div>
