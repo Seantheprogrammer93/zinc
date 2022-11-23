@@ -3,6 +3,7 @@ import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";
 import Web3 from "web3";
 import Header from './components/Header';
+import Announcement from './components/Announcement';
 
 const magic = new Magic(import.meta.env.VITE_MAGIC_KEY, {
   network: "goerli",
@@ -77,6 +78,7 @@ function App() {
 
   return (
     <div className="App">
+      <Announcement/>
       {!isLoggedIn ? (
         <div className="container">
           <h1>Please sign up or login</h1>

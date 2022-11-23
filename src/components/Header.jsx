@@ -1,10 +1,8 @@
 import React from 'react'
-import Announcement from './Announcement'
 
 function Header(props) {
   return (
     <>
-    <Announcement />
     <header aria-label="Page Header">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
