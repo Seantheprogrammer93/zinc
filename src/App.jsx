@@ -19,14 +19,14 @@ function App() {
 
   useEffect(() => {
     magic.user.isLoggedIn().then(async (magicIsLoggedIn) => {
-        setIsLoggedIn(magicIsLoggedIn);
-        if (magicIsLoggedIn) {
-            const metadata = await magic.user.getMetadata();
-            setPublicAddress(metadata.publicAddress);
-            setUserMetadata(metadata);
-        }
+      setIsLoggedIn(magicIsLoggedIn);
+      if (magicIsLoggedIn) {
+        const metadata = await magic.user.getMetadata();
+        setPublicAddress(metadata.publicAddress);
+        setUserMetadata(metadata);
+       }
     });
-}, [isLoggedIn]);
+  }, [isLoggedIn]);
 
   const sendTransaction = async () => {
     const publicAddress = (await web3.eth.getAccounts())[0];
@@ -79,21 +79,21 @@ function App() {
     <div className="App">
       {!isLoggedIn ? (
         <div className="container">
-        <h1>Please sign up or login</h1>
-        <input
+          <h1>Please sign up or login</h1>
+          <input
             type="email"
             name="email"
             required="required"
             placeholder="Enter your email"
             onChange={(event) => {
-                setEmail(event.target.value);
+              setEmail(event.target.value);
             }}
-        />
-        <button onClick={login}>Send</button>
-    </div>
+          />
+          <button onClick={login}>Send</button>
+        </div>
       ) : (
         <>
-          <Header signMessageButton={signMessage} showWalletButton={showWallet} sendButton={sendTransaction} logoutButton={logout}/>
+          <Header signMessageButton={signMessage} showWalletButton={showWallet} sendButton={sendTransaction} logoutButton={logout} />
         </>
       )}
     </div>
