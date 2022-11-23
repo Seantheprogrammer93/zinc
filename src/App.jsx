@@ -52,9 +52,9 @@ function App() {
   };
 
   const login = async () => {
-    await magic.auth.loginWithEmailOTP({ email });
-    web3.eth.getAccounts();
-    setIsLoggedIn(true);
+    //await magic.auth.loginWithEmailOTP({ email });
+    //web3.eth.getAccounts();
+    //setIsLoggedIn(true);
   };
 
   const signMessage = async () => {
