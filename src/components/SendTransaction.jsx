@@ -28,7 +28,7 @@ function SendTransaction(props) {
                 <div class="md:w-2/3">
                     <input 
                     type="text"
-                    name="amount"
+                    name="toAmount"
                     required="required"
                     placeholder='amount to send' 
                     onChange={props.amountInputData}
