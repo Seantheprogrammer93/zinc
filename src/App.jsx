@@ -82,13 +82,12 @@ function App() {
     setEmail(e.target.value);
   };
 
-  //<Login emailInputData={emilInputHandler} loginButton={login}/>
-
   return (
     <div className="App">
       <Announcement/>
       {!isLoggedIn ? (
         <div className="container">
+          <Login/>
         </div>
       ) : (
         <>

@@ -67,12 +67,11 @@ function Login(props) {
                             <h1
                                 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
                             >
-                                Welcome to Squid 🦑
+                                Welcome to Zinc!
                             </h1>
 
                             <p className="mt-4 leading-relaxed text-gray-500">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-                                nam dolorum aliquam, quibusdam aperiam voluptatum.
+                                Zinc is a non-custodial cryptocurrency wallet.
                             </p>
                         </div>
                         <input
@@ -80,11 +79,11 @@ function Login(props) {
                             name="email"
                             required="required"
                             placeholder="Enter your email"
-                            onChange={props.emailInputData}
+                            onChange={""}
                         />
                         <button
                             className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
-                            onClick={props.login}
+                            onClick={""}
                         >
                             Login
                         </button>
