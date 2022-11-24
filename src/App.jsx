@@ -98,11 +98,6 @@ function App() {
     setMessage(e.target.value);
   };
 
-  const getPublicAddress = async () => {
-    const publicAddress = (await web3.eth.getAccounts())[0];
-    setPublicAddress(publicAddress);
-  };
-
   return (
     <div className="App">
       {!isLoggedIn ? (
@@ -111,7 +106,7 @@ function App() {
         </div>
       ) : (
         <>
-          <Header welcomeEmail={getPublicAddress} signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
+          <Header welcomeEmail={email} signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
           <SendTransaction toAddressInputData={toAddressInputHandler} amountInputData={amountInputHandler} sendButton={sendTransaction}/>
         </>
       )}
