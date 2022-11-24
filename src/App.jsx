@@ -84,7 +84,6 @@ function App() {
 
   return (
     <div className="App">
-      <Announcement/>
       {!isLoggedIn ? (
         <div className="container">
           <Login/>
