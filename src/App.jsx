@@ -16,6 +16,7 @@ const web3 = new Web3(magic.rpcProvider);
 
 function App() {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [publicAddress, setPublicAddress] = useState("");
   const [toAddress, setToAddress] = useState("");
   const [amount, setAmount] = useState("");
@@ -63,7 +64,7 @@ function App() {
   const signMessage = async () => {
     const publicAddress = (await web3.eth.getAccounts())[0];
     const signedMessage = await web3.eth.personal
-      .sign("My Message", publicAddress, "")
+      .sign(message, publicAddress, "")
       .catch((e) => console.log(e));
     console.log(signedMessage);
   };
@@ -93,6 +94,10 @@ function App() {
     setAmount(e.target.value);
   };
 
+  const messageInputHandler = (e) => {
+    setMessage(e.target.value);
+  };
+
   return (
     <div className="App">
       {!isLoggedIn ? (
@@ -103,6 +108,7 @@ function App() {
         <>
           <Header signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
           <SendTransaction toAddressInputData={toAddressInputHandler} amountInputData={amountInputHandler} sendButton={sendTransaction}/>
+          <SignMessage messageInputData={messageInputHandler} signMessageButton={signMessage}/>
         </>
       )}
     </div>
