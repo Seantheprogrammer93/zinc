@@ -26,12 +26,13 @@ function SendTransaction(props) {
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+                    <input 
                     type="text"
                     name="amount"
                     required="required"
                     placeholder='amount to send' 
-                    onClick={props.amountInputData}/>
+                    onChange={props.amountInputData}
+                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
                 </div>
             </div>
             <div class="md:flex md:items-center">
