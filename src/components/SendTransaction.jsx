@@ -30,8 +30,8 @@ function SendTransaction(props) {
                     type="text"
                     name="amount"
                     required="required"
-                    placeholder='amount to send' />
-                    onclick={props.amountInputData}
+                    placeholder='amount to send' 
+                    onClick={props.amountInputData}/>
                 </div>
             </div>
             <div class="md:flex md:items-center">
