@@ -9,7 +9,7 @@ function Login(props) {
                 >
                     <img
                         alt="Night"
-                        src="https://unsplash.com/photos/H6Kl0yCnCwc?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+                        src=""
                         className="absolute inset-0 h-full w-full object-cover opacity-80"
                     />
 
@@ -65,12 +65,12 @@ function Login(props) {
                             </a>
 
                             <h1
-                                className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
+                                className="mt-2 text-2xl font-bold text-black sm:text-3xl md:text-4xl"
                             >
                                 Welcome to Zinc!
                             </h1>
 
-                            <p className="mt-4 leading-relaxed text-gray-500">
+                            <p className="mt-4 leading-relaxed text-black">
                                 Zinc is a non-custodial cryptocurrency wallet.
                             </p>
                         </div>
