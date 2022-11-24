@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header({welcomeEmail}, props) {
+function Header(props) {
   return (
     <>
     <header aria-label="Page Header">
@@ -8,7 +8,7 @@ function Header({welcomeEmail}, props) {
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="text-center sm:text-left">
             <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-              Welcome Back, {welcomeEmail}!
+              Welcome!
             </h1>
           </div>
 

@@ -106,7 +106,7 @@ function App() {
         </div>
       ) : (
         <>
-          <Header welcomeEmail={email} signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
+          <Header signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
           <SendTransaction toAddressInputData={toAddressInputHandler} amountInputData={amountInputHandler} sendButton={sendTransaction}/>
         </>
       )}
