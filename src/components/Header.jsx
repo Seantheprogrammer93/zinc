@@ -3,8 +3,8 @@ import React from 'react'
 function Header(props) {
   return (
     <>
-      <header aria-label="Page Header">
-        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
+      <header aria-label="Page Header" class="border-solid border-2 border-black mb-2">
+        <div className="mx-auto max-w-screen-xl px-4 py-2 sm:py-2 sm:px-6 lg:px-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <div className="text-center sm:text-left">
               <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
