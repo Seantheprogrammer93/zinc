@@ -5,6 +5,7 @@ import Web3 from "web3";
 import Header from './components/Header';
 import Login from './components/Login';
 import Announcement from './components/Announcement';
+import SendTransaction from './components/SendTransaction';
 
 const magic = new Magic(import.meta.env.VITE_MAGIC_KEY, {
   network: "goerli",
@@ -16,6 +17,8 @@ const web3 = new Web3(magic.rpcProvider);
 function App() {
   const [email, setEmail] = useState("");
   const [publicAddress, setPublicAddress] = useState("");
+  const [toAddress, setToAddress] = useState("");
+  const [amount, setAmount] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userMetadata, setUserMetadata] = useState({});
 
@@ -26,16 +29,18 @@ function App() {
         const metadata = await magic.user.getMetadata();
         setPublicAddress(metadata.publicAddress);
         setUserMetadata(metadata);
-       }
+      }
     });
   }, [isLoggedIn]);
 
-  const sendTransaction = async () => {
+  const sendTransaction = async (toAddress, amount) => {
+    setToAddress(toAddress.target.value)
+    setAmount(amount.target.value)
     const publicAddress = (await web3.eth.getAccounts())[0];
     const txnParams = {
       from: publicAddress,
-      to: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      value: web3.utils.toWei("0.5", "ether"),
+      to: toAddress,
+      value: web3.utils.toWei(amount, "ether"),
       gasPrice: web3.utils.toWei("30", "gwei")
     };
     web3.eth
@@ -86,11 +91,12 @@ function App() {
     <div className="App">
       {!isLoggedIn ? (
         <div className="container">
-          <Login/>
+          <Login emailInputData={emilInputHandler} loginButton={login} />
         </div>
       ) : (
         <>
-          <Header signMessageButton={signMessage} showWalletButton={showWallet} sendButton={sendTransaction} logoutButton={logout} />
+          <Header signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
+          <SendTransaction sendButton={sendTransaction} />
         </>
       )}
     </div>
