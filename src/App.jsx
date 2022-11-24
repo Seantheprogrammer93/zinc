@@ -33,14 +33,12 @@ function App() {
     });
   }, [isLoggedIn]);
 
-  const sendTransaction = async (toAddress, amount) => {
-    setToAddress(toAddress.target.value)
-    setAmount(amount.target.value)
+  const sendTransaction = async () => {
     const publicAddress = (await web3.eth.getAccounts())[0];
     const txnParams = {
       from: publicAddress,
       to: toAddress,
-      value: web3.utils.toWei(amount, "ether"),
+      value: web3.utils.toWei("0.7", "ether"),
       gasPrice: web3.utils.toWei("30", "gwei")
     };
     web3.eth
@@ -87,6 +85,14 @@ function App() {
     setEmail(e.target.value);
   };
 
+  const toAddressInputHandler = (e) => {
+    setToAddress(e.target.value);
+  };
+
+  const amountInputHandler = (e) => {
+    setAmount(e.target.value);
+  };
+
   return (
     <div className="App">
       {!isLoggedIn ? (
@@ -96,7 +102,7 @@ function App() {
       ) : (
         <>
           <Header signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
-          <SendTransaction sendButton={sendTransaction} />
+          <SendTransaction toAddressInputData={toAddressInputHandler} sendButton={sendTransaction}/>
         </>
       )}
     </div>
