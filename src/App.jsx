@@ -38,7 +38,7 @@ function App() {
     const txnParams = {
       from: publicAddress,
       to: toAddress,
-      value: web3.utils.toWei(amount, "ether"),
+      value: web3.utils.toWei(parseFloat(amount), "ether"),
       gasPrice: web3.utils.toWei("30", "gwei")
     };
     web3.eth
