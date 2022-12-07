@@ -94,14 +94,12 @@ function App() {
     setAmount(e.target.value);
   };
 
-  const messageInputHandler = (e) => {
-    setMessage(e.target.value);
-  };
-
   return (
     <div className="App">
       {!isLoggedIn ? (
-        <Login emailInputData={emilInputHandler} loginButton={login} />
+        <div class="container mx-auto">
+          <Login emailInputData={emilInputHandler} loginButton={login} />
+        </div>
       ) : (
         <>
           <Header signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
