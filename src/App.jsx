@@ -103,7 +103,9 @@ function App() {
       ) : (
         <>
           <Header signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
-          <SendTransaction toAddressInputData={toAddressInputHandler} amountInputData={amountInputHandler} sendButton={sendTransaction} />
+          <div class="flex items-center justify-center">
+            <SendTransaction toAddressInputData={toAddressInputHandler} amountInputData={amountInputHandler} sendButton={sendTransaction} />
+          </div>
         </>
       )}
     </div>
