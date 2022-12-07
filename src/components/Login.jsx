@@ -2,70 +2,29 @@ import React from 'react'
 
 function Login(props) {
     return (
-        <section className="bg-white">
-            <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-                <section
-                    className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
-                >
-                    <img
-                        alt="Night"
-                        src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1311&q=80"
-                        className="absolute inset-0 h-full w-full object-cover opacity-80"
-                    />
-
-                    <div className="hidden lg:relative lg:block lg:p-12">
-                        <a className="block text-white" href="/">
-                            <span className="sr-only">Home</span>
-                        </a>
-
-                        <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-                            Welcome to Zinc!
-                        </h2>
-
-                        <p className="mt-4 leading-relaxed text-white/90">
-                            Zinc is a non-custodial cryptocurrency wallet.
+        <section>
+            <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-black">
+                    <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
+                    Zinc
+                </a>
+                <div class="bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+                    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 class="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                            Sign in to your account
+                        </h1>
+                        <p class="text-center text-sm text-gray-900 md:text-md">
+                            Zinc is a non-custodial crypto wallet. We do not store your private keys on our servers.
                         </p>
+                        <form class="space-y-4 md:space-y-6" action="#">
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                                <input onChange={props.emailInputData} type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="email@example.com" required="" />
+                            </div>
+                            <button onClick={props.loginButton} type="submit" class="w-full text-white bg-blue-500 hover:bg-blue-500 font-medium rounded-lg text-sm px-2 py-2 text-center">Sign in</button>
+                        </form>
                     </div>
-                </section>
-
-                <main
-                    aria-label="Main"
-                    className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6"
-                >
-                    <div className="max-w-xl lg:max-w-3xl">
-                        <div className="relative -mt-16 block lg:hidden">
-                            <a
-                                className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
-                                href="/"
-                            >
-                                <span className="sr-only">Home</span>
-                            </a>
-
-                            <h1
-                                className="mt-2 text font-bold text-black sm:text-3xl md:text-4xl"
-                            >
-                                Welcome to Zinc!
-                            </h1>
-
-                            <p className="mt-4 leading-relaxed text-black">
-                                Zinc is a non-custodial cryptocurrency wallet.
-                            </p>
-                        </div>
-                        <input
-                            type="email"
-                            name="email"
-                            required="required"
-                            placeholder="Enter your email"
-                            onChange={props.emailInputData}
-                        />
-                        <button
-                            className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
-                            onClick={props.loginButton}
-                        >
-                            Login
-                        </button>
-                    </div>
-                </main>
+                </div>
             </div>
         </section>
 

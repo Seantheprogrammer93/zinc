@@ -101,9 +101,7 @@ function App() {
   return (
     <div className="App">
       {!isLoggedIn ? (
-        <div className="container">
-          <Login emailInputData={emilInputHandler} loginButton={login} />
-        </div>
+        <Login emailInputData={emilInputHandler} loginButton={login} />
       ) : (
         <>
           <Header signMessageButton={signMessage} showWalletButton={showWallet} logoutButton={logout} />
