@@ -14,7 +14,7 @@ function SendTransaction(props) {
                         type="text"
                         name="toAddress"
                         required="required"
-                        placeholder="0x0000000000000000000000000000000000000000"
+                        placeholder="Goerli Testnet Address"
                         onChange={props.toAddressInputData}
                         class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"/>
                 </div>
